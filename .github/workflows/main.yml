@@ -19,14 +19,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: myjob
     steps:
-      - run: echo "Job: ${{ github.job }}"
+      - run: "echo Job: ${{ github.job }}"
   job3:
     runs-on: ubuntu-latest
     needs: myjob
     steps:
-      - run: echo "Job: ${{ github.job }}"
+      - run: "echo Job: ${{ github.job }}"
   job4:
     runs-on: ubuntu-latest
     needs: [job2, job3]
     steps:
-      - run: echo "Job: ${{ github.job }}"
+      - run: "echo Job: ${{ github.job }}"
