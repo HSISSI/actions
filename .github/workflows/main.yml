@@ -15,3 +15,18 @@ jobs:
         run: |
           echo "repository ${{ github.repository }} 's files:"
           tree
+  job2:
+    runs-on: debian-latest
+    needs: myjob
+    steps:
+      - run: echo "Job: ${{ github.job }}"
+  job3:
+    runs-on: debian-latest
+    needs: myjob
+    steps:
+      - run: echo "Job: ${{ github.job }}"
+  job4:
+    runs-on: debian-latest
+    needs: [job2, job3]
+    steps:
+      - run: echo "Job: ${{ github.job }}"
